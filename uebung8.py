@@ -50,3 +50,18 @@ print(ist_palindrom("anna"))
 
 ########################################################################################################################
 """Uebung 8-4"""
+
+def kleine_buchstaben1(s):
+    for c in s:
+        if c.islower():
+            return True
+        else:
+            return False
+"""Diese Funktion prüft nicht das ganze Wort sondern nur den ersten Buchstaben"""
+
+def kleine_buchstaben2(s):
+    for c in s:
+        if 'c'.islower():
+            return True
+        else:
+            return False
