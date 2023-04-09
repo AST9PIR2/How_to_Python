@@ -1,6 +1,7 @@
 from collections import Counter
 
 fin = open('wortliste.txt')
+fin_eng = open('words.txt')
 
 """Uebung 9-1"""
 
@@ -43,6 +44,7 @@ def vermeiden(wort: str, forbidden: str) -> bool:
                 flag = False
     return flag
 
+
 def vermeiden_refactored(wort: str, forbidden: str) -> bool:
     for s in wort:
         if s in forbidden:
@@ -51,8 +53,8 @@ def vermeiden_refactored(wort: str, forbidden: str) -> bool:
     return True
 
 
-#print(vermeiden("aaaaaaaab", "cden"))
-#print(vermeiden_refactored("aaaaaaaab", "cden"))
+# print(vermeiden("aaaaaaaab", "cden"))
+# print(vermeiden_refactored("aaaaaaaab", "cden"))
 
 def serach_for_words_without(forbidden: str) -> None:
     for zeile in fin:
@@ -65,6 +67,7 @@ def serach_for_words_without(forbidden: str) -> None:
         if flag:
             print(wort)
 
+
 def serach_for_words_without_refactored(forbidden: str) -> None:
     for zeile in fin:
         wort = zeile.strip()
@@ -72,8 +75,8 @@ def serach_for_words_without_refactored(forbidden: str) -> None:
             print(wort)
 
 
-#print(serach_for_words_without("aeiou"))
-#print(serach_for_words_without("aeiou"))
+# print(serach_for_words_without("aeiou"))
+# print(serach_for_words_without("aeiou"))
 
 ########################################################################################################################
 """Uebung 9-4"""
@@ -94,8 +97,8 @@ def verwendet_nur(wort: str, nichtvorhanden: str) -> bool:
 
     return False
 
-def verwendet_nur_refactored(wort: str, nichtvorhanden: str) -> bool:
 
+def verwendet_nur_refactored(wort: str, nichtvorhanden: str) -> bool:
     for a in wort:
         if a not in nichtvorhanden:
             return False
@@ -103,8 +106,8 @@ def verwendet_nur_refactored(wort: str, nichtvorhanden: str) -> bool:
     return True
 
 
-#print(verwendet_nur("Hallo", "Halo"))
-#print(verwendet_nur_refactored("Hallo", "Halo"))
+# print(verwendet_nur("Hallo", "Halo"))
+# print(verwendet_nur_refactored("Hallo", "Halo"))
 
 
 ########################################################################################################################
@@ -125,6 +128,7 @@ def verwendet_alle(wort: str, vorhanden: str) -> bool:
     else:
         return False
 
+
 def verwendet_alle_refactored(wort: str, vorhanden: str) -> bool:
     for a in vorhanden:
         if a not in wort:
@@ -132,13 +136,14 @@ def verwendet_alle_refactored(wort: str, vorhanden: str) -> bool:
 
     return True
 
+
 def verwendet_alle_refactored_die_zweite(wort: str, vorhanden: str) -> bool:
     return verwendet_nur_refactored(vorhanden, wort)
 
 
-#print(verwendet_alle("Hallo", "lo"))
-#print(verwendet_alle_refactored("Hallo", "lo"))
-#print(verwendet_alle_refactored_die_zweite("Hallo", "lo"))
+# print(verwendet_alle("Hallo", "lo"))
+# print(verwendet_alle_refactored("Hallo", "lo"))
+# print(verwendet_alle_refactored_die_zweite("Hallo", "lo"))
 
 ########################################################################################################################
 """Uebung 9-6"""
@@ -156,11 +161,35 @@ def ist_alphabetisch(wort: str) -> bool:
 
     return False
 
+
 def ist_alphabetisch_refactored(wort: str) -> bool:
     return list(wort) == sorted(wort)
 
 
-#print(ist_alphabetisch("Aaaabcde"))
-#print(ist_alphabetisch("Aaaabcde"))
-#print(ist_alphabetisch_refactored("Aaaabcde"))
+# print(ist_alphabetisch("Aaaabcde"))
+# print(ist_alphabetisch("Aaaabcde"))
+# print(ist_alphabetisch_refactored("Aaaabcde"))
 
+########################################################################################################################
+"""Uebung 9-7"""
+
+
+def find_triple_paar():
+    for zeile in fin_eng:
+        wort = zeile.strip()
+
+        i = 0
+        counter = 0
+        while len(wort) > 5 and i < len(wort) - 1:
+            if wort[i] == wort[i + 1]:
+                counter += 1
+                i += 2
+            else:
+                counter = 0
+                i += 1
+
+            if counter >= 3:
+                print(wort)
+
+
+find_triple_paar()
