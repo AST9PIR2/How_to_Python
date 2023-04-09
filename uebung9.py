@@ -192,24 +192,40 @@ def find_triple_paar():
                 print(wort)
 
 
-#find_triple_paar()
+# find_triple_paar()
 
 ########################################################################################################################
 """Uebung 9-8"""
 
+
 def ist_palindrom(s) -> bool:
     return s.lower() == s[::-1].lower()
 
-def check_for_palindrome(milage: int):
 
+def check_for_palindrome(milage: int):
     while milage != 0:
         if ist_palindrom(str(milage)):
             print(milage)
         milage -= 1
 
-print(check_for_palindrome(65456))
+
+# print(check_for_palindrome(65456))
 
 
+########################################################################################################################
+"""Uebung 9-9"""
 
 
+def altersvergleich_palindorm(mutter: int, sohn: int):
+    geburtsalter = mutter - sohn
+    sohn = 0
+    print(f"Die Mutter bekommt den Sohn mit {geburtsalter} Jahren")
 
+    while geburtsalter < 99:
+        if str(geburtsalter) == str(sohn)[::-1]:
+            print(f"Palindrom bei alter von Mutter {geburtsalter} und alter vom Sohn {sohn}")
+        geburtsalter += 1
+        sohn += 1
+
+
+altersvergleich_palindorm(73, 37)
