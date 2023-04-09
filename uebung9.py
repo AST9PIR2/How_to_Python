@@ -79,8 +79,18 @@ def verwendet_nur(wort: str, nichtvorhanden: str) -> bool:
 
     return False
 
+def verwendet_nur_refactored(wort: str, nichtvorhanden: str) -> bool:
 
-# print(verwendet_nur("Hallo", "Halo"))
+    for a in wort:
+        if a not in nichtvorhanden:
+            return False
+
+    return True
+
+
+#print(verwendet_nur("Hallo", "Halo"))
+#print(verwendet_nur_refactored("Hallo", "Halo"))
+
 
 ########################################################################################################################
 """Uebung 9-5"""
@@ -120,4 +130,4 @@ def ist_alphabetisch(wort: str) -> bool:
     return False
 
 
-print(ist_alphabetisch("Aaaabcde"))
+#print(ist_alphabetisch("Aaaabcde"))
