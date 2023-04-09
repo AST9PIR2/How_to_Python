@@ -192,4 +192,24 @@ def find_triple_paar():
                 print(wort)
 
 
-find_triple_paar()
+#find_triple_paar()
+
+########################################################################################################################
+"""Uebung 9-8"""
+
+def ist_palindrom(s) -> bool:
+    return s.lower() == s[::-1].lower()
+
+def check_for_palindrome(milage: int):
+
+    while milage != 0:
+        if ist_palindrom(str(milage)):
+            print(milage)
+        milage -= 1
+
+print(check_for_palindrome(65456))
+
+
+
+
+
