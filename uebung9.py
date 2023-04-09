@@ -80,4 +80,28 @@ def verwendet_nur(wort: str, nichtvorhanden: str):
     return False
 
 
-print(verwendet_nur("Hallo", "Halo"))
+#print(verwendet_nur("Hallo", "Halo"))
+
+########################################################################################################################
+"""Uebung 9-5"""
+
+def verwendet_alle(wort: str, vorhanden: str):
+    testlist = []
+    for a in vorhanden:
+        testlist.append(a)
+
+    for b in wort:
+        if b in testlist:
+            testlist.remove(b)
+
+    if testlist == []:
+        return True
+    else:
+        return False
+
+print(verwendet_alle("Hallo", "lo"))
+
+
+
+
+
