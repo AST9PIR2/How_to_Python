@@ -5,7 +5,7 @@ fin = open('wortliste.txt')
 """Uebung 9-1"""
 
 
-def print_woerter_laenger_20():
+def print_woerter_laenger_20() -> None:
     for zeile in fin:
         wort = zeile.strip()
         if len(wort) > 20:
@@ -16,7 +16,7 @@ def print_woerter_laenger_20():
 """Uebung 9-2"""
 
 
-def hat_kein_e():
+def hat_kein_e() -> None:
     counter = 0
     length = 0
     for zeile in fin:
@@ -35,7 +35,7 @@ def hat_kein_e():
 """Uebung 9-3"""
 
 
-def vermeiden(wort: str, forbidden: str):
+def vermeiden(wort: str, forbidden: str) -> bool:
     flag = True
     for s in wort:
         for a in forbidden:
@@ -46,7 +46,7 @@ def vermeiden(wort: str, forbidden: str):
 
 # print(vermeiden("aaaaaaaabn", "cden"))
 
-def serach_for_words_without(forbidden: str):
+def serach_for_words_without(forbidden: str) -> None:
     for zeile in fin:
         flag = True
         wort = zeile.strip()
@@ -64,7 +64,7 @@ def serach_for_words_without(forbidden: str):
 """Uebung 9-4"""
 
 
-def verwendet_nur(wort: str, nichtvorhanden: str):
+def verwendet_nur(wort: str, nichtvorhanden: str) -> bool:
     testlist = []
     for a in nichtvorhanden:
         testlist.append(a)
@@ -80,12 +80,13 @@ def verwendet_nur(wort: str, nichtvorhanden: str):
     return False
 
 
-#print(verwendet_nur("Hallo", "Halo"))
+# print(verwendet_nur("Hallo", "Halo"))
 
 ########################################################################################################################
 """Uebung 9-5"""
 
-def verwendet_alle(wort: str, vorhanden: str):
+
+def verwendet_alle(wort: str, vorhanden: str) -> bool:
     testlist = []
     for a in vorhanden:
         testlist.append(a)
@@ -99,9 +100,24 @@ def verwendet_alle(wort: str, vorhanden: str):
     else:
         return False
 
-print(verwendet_alle("Hallo", "lo"))
+
+# print(verwendet_alle("Hallo", "lo"))
+
+########################################################################################################################
+"""Uebung 9-6"""
 
 
+def ist_alphabetisch(wort: str) -> bool:
+    testlist = []
+
+    for a in wort:
+        if a not in testlist:
+            testlist.append(a)
+
+    if testlist == sorted(testlist):
+        return True
+
+    return False
 
 
-
+print(ist_alphabetisch("Aaaabcde"))
