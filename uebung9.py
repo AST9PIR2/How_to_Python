@@ -43,8 +43,16 @@ def vermeiden(wort: str, forbidden: str) -> bool:
                 flag = False
     return flag
 
+def vermeiden_refactored(wort: str, forbidden: str) -> bool:
+    for s in wort:
+        if s in forbidden:
+            return False
 
-# print(vermeiden("aaaaaaaabn", "cden"))
+    return True
+
+
+#print(vermeiden("aaaaaaaab", "cden"))
+#print(vermeiden_refactored("aaaaaaaab", "cden"))
 
 def serach_for_words_without(forbidden: str) -> None:
     for zeile in fin:
@@ -57,8 +65,15 @@ def serach_for_words_without(forbidden: str) -> None:
         if flag:
             print(wort)
 
+def serach_for_words_without_refactored(forbidden: str) -> None:
+    for zeile in fin:
+        wort = zeile.strip()
+        if not vermeiden_refactored(wort, forbidden):
+            print(wort)
 
-# print(serach_for_words_without("aeiou"))
+
+#print(serach_for_words_without("aeiou"))
+#print(serach_for_words_without("aeiou"))
 
 ########################################################################################################################
 """Uebung 9-4"""
@@ -110,8 +125,20 @@ def verwendet_alle(wort: str, vorhanden: str) -> bool:
     else:
         return False
 
+def verwendet_alle_refactored(wort: str, vorhanden: str) -> bool:
+    for a in vorhanden:
+        if a not in wort:
+            return False
 
-# print(verwendet_alle("Hallo", "lo"))
+    return True
+
+def verwendet_alle_refactored_die_zweite(wort: str, vorhanden: str) -> bool:
+    return verwendet_nur_refactored(vorhanden, wort)
+
+
+#print(verwendet_alle("Hallo", "lo"))
+#print(verwendet_alle_refactored("Hallo", "lo"))
+#print(verwendet_alle_refactored_die_zweite("Hallo", "lo"))
 
 ########################################################################################################################
 """Uebung 9-6"""
@@ -129,5 +156,11 @@ def ist_alphabetisch(wort: str) -> bool:
 
     return False
 
+def ist_alphabetisch_refactored(wort: str) -> bool:
+    return list(wort) == sorted(wort)
+
 
 #print(ist_alphabetisch("Aaaabcde"))
+#print(ist_alphabetisch("Aaaabcde"))
+#print(ist_alphabetisch_refactored("Aaaabcde"))
+
