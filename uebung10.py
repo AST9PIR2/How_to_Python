@@ -1,6 +1,7 @@
 """Uebung 10-1"""
 from datetime import datetime
 from random import random, randrange
+import time
 
 
 def sum_list(liste: list) -> int:
@@ -101,6 +102,8 @@ def has_duplicates(liste: list) -> bool:
 """Uebung 10-8"""
 
 '''Achtung! Die Monatstage wurden einfachheitshalber auf max 28 Tage limitiert'''
+
+
 def date_generator(anzahl: int) -> list:
     dateliste = []
     for x in range(0, anzahl):
@@ -126,4 +129,48 @@ def geburtstagspruefung(anzahl: int, personen: int) -> None:
 # geburtstagspruefung(100, 23)
 
 ########################################################################################################################
-"""Uebung 10-8"""
+"""Uebung 10-9"""
+
+
+def read_write_append_append() -> list:
+    fin = open('wortliste.txt')
+    newlist_append = []
+    for zeile in fin:
+        wort = zeile.strip()
+        newlist_append.append(wort)
+    fin.close()
+    return newlist_append
+
+
+def read_write_append_brackets() -> list:
+    fin = open('wortliste.txt')
+    newlist_brackets = []
+    for zeile in fin:
+        wort = zeile.strip()
+        newlist_brackets = newlist_brackets + [wort]
+    fin.close()
+    return newlist_brackets
+
+
+def compare_runtime() -> None:
+    start1 = time.time()
+    a = read_write_append_append()
+    print(type(a))
+    print(len(a))
+    end1 = time.time()
+
+    start2 = time.time()
+    b = read_write_append_brackets()
+    print(type(b))
+    print(len(b))
+    end2 = time.time()
+
+    print(f"Funktion 1 hat {end1 - start1:.03f}s gebraucht und Funktion 2 hat {end2 - start2:.03f}s gebraucht.")
+
+
+#compare_runtime()
+
+########################################################################################################################
+"""Uebung 10-10"""
+
+#def bisektion(sortedlist: list, gesuchteswort: str):
