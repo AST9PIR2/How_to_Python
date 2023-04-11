@@ -154,15 +154,15 @@ def read_write_append_brackets() -> list:
 
 def compare_runtime() -> None:
     start1 = time.time()
-    a = read_write_append_append()
-    print(type(a))
-    print(len(a))
+    func1 = read_write_append_append()
+    print(type(func1))
+    print(len(func1))
     end1 = time.time()
 
     start2 = time.time()
-    b = read_write_append_brackets()
-    print(type(b))
-    print(len(b))
+    func2 = read_write_append_brackets()
+    print(type(func2))
+    print(len(func2))
     end2 = time.time()
 
     print(f"Funktion 1 hat {end1 - start1:.03f}s gebraucht und Funktion 2 hat {end2 - start2:.03f}s gebraucht.")
